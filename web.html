@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOTER AGE PREDICTER:</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+            background-color: rgb(31, 31, 36);
+            font-family: 'gilroy';
+        }
+        h1{
+            font-size: 60px;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+            font-style: bold;
+            font-weight: 800;
+        }
+        #cont{
+            min-height: 10vw;
+            width: 50vw;
+            border: 2px solid white;
+            border-radius: 30px;
+            margin-left: 25%;
+            margin-top: 5%;
+            padding: 20px;
+        }
+        #input{
+            width: 70%;
+            padding: 15px;
+           /* border: 2px solid white;*/
+            border-radius: 20px;
+            margin-left: 15%;
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+            font-style: italic;
+            font-weight: 600;
+            text-align: center;
+
+        }
+        #btncont{
+            height: 20%;
+            width: 35%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          /*  border: 2px solid white;*/
+            margin-left: 32.5%;
+            margin-top: 5%;
+            padding: 10px;
+        }
+        #btn1{
+            width: 49%;
+            /*border: 2px solid white;*/
+            border-radius: 10px;
+            padding: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        #btn2{
+            width: 49%;
+            /*border: 2px solid white;*/
+            border-radius: 10px;
+            padding: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        #btn1:hover{
+            font-size: 16px;
+        }
+        #btn2:hover{
+            font-size: 16px;
+        }
+        #result{
+            width: 70%;
+            height: 30%;
+           /* border: 2px solid white;*/
+            margin-top: 5%;
+            margin-left: 15%;
+            color: white;
+            font-size: 30px;
+            font-style: italic;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-align: center;
+            /*opacity: 0;*/
+        }
+        /*RESPONSIVENESS:*/
+        @media(max-width:600px){
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html,body{
+                height: 100%;
+                width: 100%;
+                font-family: 'gilroy';
+                background-color: rgb(31, 31, 36);;
+            }
+            h1{
+                font-size: 30px;
+                margin-top: 10%;
+            }
+            #cont{
+                width: 40vh;
+                min-height: 10vh;
+                margin-left: 10%;
+                margin-top: 20%;
+            }
+            #input{
+                width: 80%;
+                margin-left: 10%;
+                padding: 8px;
+                font-size: 12px;
+                font-weight: 400;
+            }
+            #btncont{
+                height: 10%;
+                width: 70%;
+                margin-left: 15%;
+                justify-content: space-around;
+            }
+            #btn1{
+                padding: 2px;
+                width: 35%;
+                font-size:10px;
+            }
+            #btn2{
+                padding: 2px;
+                width: 35%;
+                font-size:10px;
+            }
+            #btn1:hover{
+            font-size: 10px;
+            }
+            #btn2:hover{
+            font-size: 10px;
+            }
+            #result{
+                font-size: 20px;
+                font-weight: 400;
+            }
+        }        
+    </style>
+</head>
+<body>
+    <h1>VOTER AGE PREDICTOR!</h1>
+    <div id="cont">
+        <input type="text" id="input" placeholder="Please enter your age:">
+        <div id="btncont">
+            <button id="btn1">Check</button>
+            <button id="btn2">Refresh</button>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script>
+        let input = document.querySelector("#input");
+        let btn1 = document.querySelector("#btn1");
+        let btn2 = document.querySelector("#btn2");
+        let res = document.querySelector("#result");
+        btn1.addEventListener("click",()=>{
+            if(input.value>=18 && input.value<=100){
+                console.log("you are eligible to vote!");
+                res.innerText = "hurray!, YOU ARE ELIGIBLE TO VOTE!"
+            }
+            else if(input.value==""){
+                console.log("it seems you have entered nothing");
+                res.innerText = "it seems you have entered nothing..."
+            }
+            else if(input.value<=0){
+                console.log("Please enter value greater than 0!");
+                res.innerText = "Please enter a correct value."
+            }
+            else if(input.value>0 && input.value<18){
+                console.log("You are not eligible to vote.");
+                res.innerText = "Sorry, you are not eligible to vote!";
+            }
+            else{
+                console.log("please give a correct input");
+                res.innerText = "please give a correct input!";
+            }
+        })
+        btn2.addEventListener("click",()=>{
+            console.log("refreshed!");
+            input.value = "";
+            res.innerText = "";
+
+        })
+
+    </script>
+</body>
+</html>
